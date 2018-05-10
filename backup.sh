@@ -43,7 +43,7 @@ echo "===================> Starting backup at $(date)... <==================="
   tar -C "$BACKUP_DIR/" -jcvf "$ARCHIVE_FILE" "$BACKUP_NAME/"
 
   # Encrypt archive
-  # decrypt with `openssl aes-256-cbc -d -in "$ARCHIVE_FILE_ENC" -k "$ENCRYPTION_KEY"`
+  # decrypt with `openssl aes-256-cbc -d -in "$ARCHIVE_FILE_ENC" -k "$ENCRYPTION_KEY" -out "$OUT_FILE"`
   openssl aes-256-cbc -in "$ARCHIVE_FILE" -k "$ENCRYPTION_KEY" -out "$ARCHIVE_FILE_ENC"
 
   # Upload
