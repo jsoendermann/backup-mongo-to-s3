@@ -43,8 +43,8 @@ echo "===================> Starting backup at $(date)... <==================="
   tar -C "$BACKUP_DIR/" -jcvf "$ARCHIVE_FILE" "$BACKUP_NAME/"
 
   # Encrypt archive
-  # decrypt with `openssl aes-256-cbc -d -in "$ARCHIVE_FILE_ENC" -k "$ENCRYPTION_KEY" -out "$OUT_FILE"`
-  openssl aes-256-cbc -in "$ARCHIVE_FILE" -k "$ENCRYPTION_KEY" -out "$ARCHIVE_FILE_ENC"
+  # decrypt with `/usr/local/opt/openssl/bin/openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -salt -d -in "$ARCHIVE_FILE" -k "$ENCRYPTION_KEY" -out "$OUT_FILE"`
+  openssl enc -aes-256-cbc -md sha512 -pbkdf2 -iter 100000 -salt -in "$ARCHIVE_FILE" -k "$ENCRYPTION_KEY" -out "$ARCHIVE_FILE_ENC"
 
   # Upload
   aws s3 cp "$ARCHIVE_FILE_ENC" "s3://${AWS_BUCKET_NAME}/"
@@ -53,6 +53,7 @@ if [[ $? != 0 ]]; then
   (>&2 echo "An error occurred while backing up the db!")
 fi
 
+echo "Deleting temp files..."
 rm -rf "$BACKUP_DIR/*"
 
 echo "===================> Backup complete! <==================="
