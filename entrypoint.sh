@@ -56,7 +56,6 @@ for i in {1..10}; do
     sleep 10
 done
 
-echo "backup on startup is $BACK_UP_ON_STARTUP"
 # Run the backup once now (useful for debugging)
 if [[ -z "$BACK_UP_ON_STARTUP" ]]; then
     echo "Skipping backup on startup"
