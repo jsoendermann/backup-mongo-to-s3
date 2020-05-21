@@ -57,8 +57,10 @@ for i in {1..10}; do
 done
 
 # Run the backup once now (useful for debugging)
-if [[ -z "$BACK_UP_ON_STARTUP"]]; then
+if [[ -z "$BACK_UP_ON_STARTUP" ]]; then
     /scripts/backup.sh
+else
+    echo "Skipping backup on startup"
 fi
 
 # We have to touch this file to make sure it exists when we run tail
