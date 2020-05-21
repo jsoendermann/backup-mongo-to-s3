@@ -60,6 +60,7 @@ done
 if [[ -z "$BACK_UP_ON_STARTUP" ]]; then
     echo "Skipping backup on startup"
 else
+    echo "Doing an initial backup..."
     /scripts/backup.sh
 fi
 
