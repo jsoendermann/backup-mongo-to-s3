@@ -65,7 +65,7 @@ fi
 
 echo "Deleting temp dir contents..."
 echo "rm -rfv $BACKUP_DIR/*"
-rm -rfv "$BACKUP_DIR/*"
+2>&1 rm -rfv "$BACKUP_DIR/*" > /rmlogs
 
 echo "===================> Backup complete! <==================="
 echo ""
