@@ -64,6 +64,7 @@ if [[ $? != 0 ]]; then
 fi
 
 echo "Deleting temp dir contents..."
+ps -aux
 echo "ls $BACKUP_DIR"
 ls $BACKUP_DIR
 2>&1 ls $BACKUP_DIR > lslogs
