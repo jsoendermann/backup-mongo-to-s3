@@ -66,12 +66,7 @@ fi
 sleep 5
 
 echo "Deleting temp dir contents..."
-ps -aux
-echo "ls $BACKUP_DIR"
-ls $BACKUP_DIR
-2>&1 ls $BACKUP_DIR > lslogs
-echo "rm -rfv $(ls -d /tmp-dir/*)"
-2>&1 rm -rfv $(ls -d /tmp-dir/*) > /rmlogs
+rm -rfv "$(ls -d /tmp-dir/*)"
 
 echo "===================> Backup complete! <==================="
 echo ""
