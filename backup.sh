@@ -70,8 +70,8 @@ ps -aux
 echo "ls $BACKUP_DIR"
 ls $BACKUP_DIR
 2>&1 ls $BACKUP_DIR > lslogs
-echo "rm -rfv $BACKUP_DIR"
-2>&1 rm -rfv "$BACKUP_DIR" > /rmlogs
+echo "rm -rfv $BACKUP_DIR/*"
+2>&1 rm -rfv "$BACKUP_DIR/*" > /rmlogs
 
 echo "===================> Backup complete! <==================="
 echo ""
