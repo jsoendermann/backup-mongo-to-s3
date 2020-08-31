@@ -62,8 +62,8 @@ if [[ $? != 0 ]]; then
   (>&2 echo "An error occurred while backing up the db!")
 fi
 
-echo "Deleting temp dir..."
-rm -rf "$BACKUP_DIR"
+echo "Deleting temp dir contents..."
+rm -rfv "$BACKUP_DIR/*"
 
 echo "===================> Backup complete! <==================="
 echo ""
