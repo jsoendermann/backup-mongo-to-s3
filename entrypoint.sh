@@ -46,7 +46,7 @@ cron
 # Wait for db to come online
 for i in {1..10}; do
     echo "Trying to connect to db..."
-    mongo \
+    >/dev/null mongo \
         --username "$MONGO_USERNAME" \
         --password "$MONGO_PASSWORD" \
         --authenticationDatabase "$MONGO_AUTH_DB" \
