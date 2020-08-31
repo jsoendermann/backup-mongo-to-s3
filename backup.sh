@@ -64,7 +64,8 @@ if [[ $? != 0 ]]; then
 fi
 
 echo "Deleting temp dir contents..."
-rm -rf "$BACKUP_DIR/*"
+echo "rm -rfv $BACKUP_DIR/*"
+rm -rfv "$BACKUP_DIR/*"
 
 echo "===================> Backup complete! <==================="
 echo ""
