@@ -2,11 +2,12 @@
 
 echo "===================> Starting backup at $(date)... <==================="
 
+BACKUP_DIR="/tmp-dir"
+
 (
   set -e
 
   # Files & dirs
-  BACKUP_DIR="/tmp-dir"
   DATE=$(date -u "+%F-%H%M%S")
   BACKUP_NAME="${FILENAME_PREFIX}-$DATE"
   ARCHIVE_NAME="$BACKUP_NAME.tar.bz2"
@@ -63,8 +64,7 @@ if [[ $? != 0 ]]; then
 fi
 
 echo "Deleting temp dir contents..."
-echo "rm -rfv $BACKUP_DIR/*"
-rm -rfv "$BACKUP_DIR/*"
+rm -rf "$BACKUP_DIR/*"
 
 echo "===================> Backup complete! <==================="
 echo ""
